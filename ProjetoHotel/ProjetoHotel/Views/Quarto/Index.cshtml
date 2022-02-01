@@ -1,0 +1,31 @@
+﻿@model IEnumerable<ProjetoHotel.Models.Quarto>
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Produtos</h2>
+<p>
+    @Html.ActionLink("Incluir Novo Quarto ou hotel", "Create", "Quarto", new { @class = "btn btn-success" })
+</p>
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.QuartoNome)</th>
+        <th>@Html.DisplayNameFor(model => model.QuartoAdulto) </th>
+        <th>@Html.DisplayNameFor(model => model.QuartoCrianca)</th>
+        <th>@Html.DisplayNameFor(model => model.Preco)</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.QuartoNome)</td>
+            <td>@Html.DisplayFor(modelItem => item.QuartoAdulto)</td>
+            <td>@Html.DisplayFor(modelItem => item.QuartoCrianca)</td>
+            <td>@Html.DisplayFor(modelItem => item.Preco)</td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.QuartoId }) |
+                @Html.ActionLink("Detalhes", "Details", new { id = item.QuartoId }) |
+                @Html.ActionLink("Deletar", "Delete", new { id = item.QuartoId })
+            </td>
+        </tr>
+    }
+</table>
